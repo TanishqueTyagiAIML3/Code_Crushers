@@ -55,4 +55,4 @@ ShikshaSathi AI is an advanced, AI-backed education ecosystem crafted to uplift 
    The application will boot up and be accessible at `http://localhost:3000`.
 
 ## 🤝 Hackathon Submission
-*Insert your team name, selected hackathon track, and project submission links in this section.*
+*Insert your team name, selected hackathon track, and project submission links in this section.* 
