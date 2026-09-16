@@ -21,7 +21,6 @@ import {
 import { PRIMARY_MODEL } from "./ai-config.ts";
 
 dotenv.config();
-const PORT = Number(process.env.PORT) || 3000;
 
 // Lazy initialization of Gemini client to prevent crashes if key is missing on initial boot
 let genAIClient: GoogleGenAI | null = null;
@@ -46,8 +45,9 @@ interface HistoryRecord {
 
 const historyDatabase: HistoryRecord[] = [];
 
-export async function createApp() {
+async function startServer() {
   const app = express();
+  const PORT = 3000;
 
   app.use(express.json({ limit: "35mb" }));
   app.use(express.urlencoded({ extended: true, limit: "35mb" }));
@@ -872,13 +872,9 @@ Feel free to ask follow-up questions!`;
     });
   }
 
-  return app;
-}
-
-if (process.env.VERCEL !== "1") {
-  createApp().then((app) => {
-    app.listen(PORT, "0.0.0.0", () => {
-      console.log(`ShikshaSathi Full-Stack Server running on port ${PORT}`);
-    });
+  app.listen(PORT, "0.0.0.0", () => {
+    console.log(`ShikshaSathi Full-Stack Server running on port ${PORT}`);
   });
 }
+
+startServer();

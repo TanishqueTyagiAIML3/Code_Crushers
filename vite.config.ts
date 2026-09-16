@@ -152,7 +152,7 @@ export default defineConfig(() => {
           ]
         },
         devOptions: {
-          enabled: false,
+          enabled: true,
         }
       })
     ],
